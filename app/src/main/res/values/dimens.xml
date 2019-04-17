@@ -16,11 +16,8 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-
-    <!-- colors to highlight changes -->
-    <color name="increasedValue">#00FF00</color>
-    <color name="decreasedValue">#FF0000</color>
+    <dimen name="item_padding">16dp</dimen>
+    <dimen name="network_item_padding">8dp</dimen>
+    <dimen name="logo_size">48dp</dimen>
+    <dimen name="logo_big_size">192dp</dimen>
 </resources>
