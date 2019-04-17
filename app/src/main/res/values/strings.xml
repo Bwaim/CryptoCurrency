@@ -16,4 +16,19 @@
 
 <resources>
     <string name="app_name">CryptoCurrency</string>
+
+  <!-- List screen -->
+  <string name="crypto_currency_logo">Logo of the crypto currency</string>
+  <string name="retry">Retry</string>
+  <string name="currency_name_format">%1$s (%2$s)</string>
+  <string name="price_format">%1$s €</string>
+
+  <!-- Details screen -->
+  <string name="buy">buy</string>
+  <string name="buy_description">Quantity to buy</string>
+  <string name="crypto_currencies_title">CryptoCurrencies</string>
+  <string name="details_title">details</string>
+  <string name="volume_label">Volume: %1$s %2$s</string>
+  <string name="price_label">Price: %1$s €</string>
+  <string name="conversion_text">I Want to Buy for %1$s € I will have %2$s %3$s</string>
 </resources>

@@ -18,11 +18,41 @@ package com.bwaim.cryptocurrency
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setupNavigation()
     }
+
+    override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
+
+    private fun setupNavigation() {
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        navController.setGraph(R.navigation.nav_graph, intent.extras)
+
+        NavigationUI.setupActionBarWithNavController(
+            this,
+            navController,
+            AppBarConfiguration.Builder(R.id.crypto_currencies_screen).build()
+        )
+    }
+
+    override fun onSupportNavigateUp() = navController.navigateUp()
 }
